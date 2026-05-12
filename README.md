@@ -64,8 +64,34 @@ y_train_tensor = torch.tensor(y_train.values, dtype=torch.float32)
 y_test_tensor = torch.tensor(y_test.values, dtype=torch.float32)
 ```
 
-5) 
-6) 
-7) 
+5) 100,000개의 데이터이므로 batch_size 설정
+- batch_size = 256
+
+6) 모델 설정
+```
+model = TabTransformer(
+    categories=(15, 3, 3, 6),
+    num_continuous=X_train_num.shape[1],
+    dim=32,
+    dim_out=3,
+    depth=8,
+    heads=6,
+    attn_dropout=0.1,
+    ff_dropout=0.1,
+    mlp_hidden_mults=(4, 2),
+    mlp_act=nn.ReLU(),
+).to(device)
+```
+
+7) 손실 함수 및 최적화 도구
+- CrossEntropyLoss
+- Adam: 학습률 0.001
+
+8) epochs 50으로 반복학습
 
 ### 4. 성능 결과
+1) Accuracy
+<img width="444" height="301" alt="image" src="https://github.com/user-attachments/assets/dc141316-2307-4f46-9b5f-c62bb9699907" />
+
+2) Confusion Matrix
+<img width="515" height="455" alt="image" src="https://github.com/user-attachments/assets/51da0e05-f10e-4283-bb33-58dde45b3e14" />

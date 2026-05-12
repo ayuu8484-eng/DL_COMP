@@ -49,7 +49,8 @@
 - StandardScaler
 
 4) 범주형, 수치형 나눠서 텐서 변형
-'''# 범주형에 'Credit_Score' 빼기
+```
+# 범주형에 'Credit_Score' 빼기
 obj_cols_ny = ['Occupation', 'Credit_Mix', 'Payment_of_Min_Amount', 'Payment_Behaviour']
 
 
@@ -60,7 +61,9 @@ X_test_obj = torch.tensor(X_test[obj_cols_ny].values, dtype=torch.int64)
 X_test_num = torch.tensor(X_test[num_cols].values, dtype=torch.float32)
 
 y_train_tensor = torch.tensor(y_train.values, dtype=torch.float32)
-y_test_tensor = torch.tensor(y_test.values, dtype=torch.float32)'''
+y_test_tensor = torch.tensor(y_test.values, dtype=torch.float32)
+```
+
 5) 
 6) 
 7) 
